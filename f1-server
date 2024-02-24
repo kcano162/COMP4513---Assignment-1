@@ -1,0 +1,11 @@
+const express = require('express');
+const supa = require('@supabase/supabase-js');
+//use to implement APIs in express
+const app = (express);
+
+//the url and key for the supabase database
+const supaURL = 'https://vswwjngcsacwnqmisrvk.supabase.co';
+const supaAPI = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzd3dqbmdjc2Fjd25xbWlzcnZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg3OTUyNTYsImV4cCI6MjAyNDM3MTI1Nn0.1v11GLRYNnkrc-rBr5knHMoz0evQ9Bzh1iBTxe2hgn8';
+
+const supabase = supa.creatClient(supaURL, supaAPI);
+//using the query builder API to get the SQL statements
