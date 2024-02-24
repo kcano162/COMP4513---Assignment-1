@@ -9,3 +9,17 @@ const supaAPI = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsIn
 
 const supabase = supa.creatClient(supaURL, supaAPI);
 //using the query builder API to get the SQL statements
+
+//Returns the seasons supported by the API 
+app.get('/api/seasons', async(req, resp) => {
+    const {data, error} = await supabase
+        .from('seasons')
+        .select();
+        resp.send(data);
+});
+
+//Port
+app.listen(8080, () => {
+    console.log('Listening on Port:8080');
+    console.log('http://localhost:8080/fi/status');
+})
