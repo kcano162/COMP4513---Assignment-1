@@ -11,8 +11,10 @@ const supaAPI = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsIn
 const supabase = supa.createClient(supaURL, supaAPI);
 const jsonMessage = (msg) => { return {message: msg }};
 
-/*
-/   Error handling function 
+/**
+*   Error handling function 
+*   @param  data     The query data being queried
+*   @param  response Resp parameter
 */
 function errorMsg(data, response){
     if (!data || data.length === 0){
@@ -21,8 +23,11 @@ function errorMsg(data, response){
     } else { response.json(data) }
 }
 
-/*
-/   Error handling function for queries with start and end parameters
+/** 
+*   Error handling function for queries with start and end parameters
+*   @param  data     The query data being queried
+*   @param  response Resp parameter
+*   @param  req      Requested object 
 */ 
 function errorParameterMsg(data, resp, req){
     if (parseInt(req.params.end) < parseInt(req.params.start)){
@@ -50,7 +55,7 @@ app.get('/api/seasons', async(req, resp) => {
 });
 
 /*
-/   Returns all the circuits
+/   Returns all the circuits in the circuits table
 */
 app.get('/api/circuits', async(req, resp) => {
     const {data, error} = await supabase
@@ -58,7 +63,6 @@ app.get('/api/circuits', async(req, resp) => {
         .select();
     resp.json(data);
 });
-
 /*
 /   Returns specified circuit based on the ref provided
 */
@@ -306,7 +310,5 @@ app.get('/api/standings/:raceId/constructors', async(req, resp) => {
 
 //Port
 app.listen(8080, () => {
-    console.log('Listening on Port:8080');
-    console.log('http://localhost:8080/api/');
 })
 
