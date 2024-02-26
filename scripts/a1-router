@@ -348,27 +348,33 @@ const handleConstructorStanding = (app) => {
 };
 
 //export routings to a1-router
-module.exports = {
-    handleAllSeasons,
-    handleAllCircuits,
-    handleCircuit,
-    handleCircuitsInYear,
-    handleAllConstructors,
-    handleConstructor,
-    handleAllDrivers,
-    handleDriver,
-    handleDriverSearch,
-    handleDriveRace,
-    handleRace,
-    handleRaceInYear,
-    handleRaceInYearAndRound,
-    handleRaceInCircuit,
-    handleRaceInCircuitsBetween,
-    handleRaceResult,
-    handleAllDriverResult,
-    handleDriverResultBetween,
-    handleQualifyingRace,
-    handleDriverStanding,
-    handleConstructorStanding
-};
+// module.exports = {
+//     handleAllSeasons,
+//     handleAllCircuits,
+//     handleCircuit,
+//     handleCircuitsInYear,
+//     handleAllConstructors,
+//     handleConstructor,
+//     handleAllDrivers,
+//     handleDriver,
+//     handleDriverSearch,
+//     handleDriveRace,
+//     handleRace,
+//     handleRaceInYear,
+//     handleRaceInYearAndRound,
+//     handleRaceInCircuit,
+//     handleRaceInCircuitsBetween,
+//     handleRaceResult,
+//     handleAllDriverResult,
+//     handleDriverResultBetween,
+//     handleQualifyingRace,
+//     handleDriverStanding,
+//     handleConstructorStanding
+// };
 
+
+//Port
+let port = 8080;
+app.listen(port, () => {
+    console.log("listening on port " + port);
+});
