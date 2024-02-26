@@ -150,8 +150,8 @@ app.get('/api/drivers/search/:substring', async(req, resp) => {
 */
 app.get('/api/drivers/race/:raceId', async(req, resp) => {
     const {data, error} = await supabase
-        .from('qualifying')
-        .select(`races!inner(raceId), drivers!inner (*)`)
+        .from('results')
+        .select(`races!inner(raceId, name, year), drivers!inner (*)`)
         .eq('races.raceId', req.params.raceId);
     //call errorMsg function 
     errorMsg(data, resp);
@@ -164,8 +164,7 @@ app.get('/api/drivers/race/:raceId', async(req, resp) => {
 app.get('/api/races/:raceId', async(req, resp) => {
     const {data, error} = await supabase
         .from('races')
-        .select(`
-            *, circuits(name, location, country)`)
+        .select(`*, circuits(name, location, country)`)
         .eq('raceId', req.params.raceId);
     //call errorMsg function 
     errorMsg(data, resp);
